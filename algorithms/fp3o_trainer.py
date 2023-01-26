@@ -48,7 +48,7 @@ class FP3O():
         self._use_policy_active_masks = args.use_policy_active_masks
 
         # add 
-        self.partial_share = args.partial_share
+        self.partial_share = args.partial_shar
 
         
         if self._use_popart:
