@@ -58,7 +58,7 @@ class FP3O():
 
     def cal_value_loss(self, values, value_preds_batch, return_batch, active_masks_batch):
         """
-        Calculate value function loss.
+        Calculate value function loss. We consider each A^i is equal to 1/n*A(s,a), and set the reward to n times.
         :param values: (torch.Tensor) value function predictions.
         :param value_preds_batch: (torch.Tensor) "old" value  predictions from data batch (used for value clip loss)
         :param return_batch: (torch.Tensor) reward to go returns.
@@ -235,6 +235,7 @@ class FP3O():
         # actor update
         imp_weights = torch.prod(torch.exp(action_log_probs - old_action_log_probs_batch),dim=-1,keepdim=True)
 
+        # the term of -r^j has no contribution to the gradient.
         surr1 = imp_weights * adv_targ * factor_batch
         surr2 = torch.clamp(imp_weights, 1.0 - self.clip_param, 1.0 + self.clip_param) * adv_targ * factor_batch
 
