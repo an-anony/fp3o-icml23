@@ -1,4 +1,6 @@
-# Holding Monotonic Improvement and Generality for Multi-Agent Proximal Policy Optimization
+# FP3O: Enabling Proximal Policy Optimization on Cooperative Multi-Agent Tasks with Diverse Network Types
+***This is an anonymous repository for double-blind review at ICML 2023.***
+
 This repository contains the implementation of Full-Pipline PPO (FP3O) on the bechmarks of MAMuJoCo and SMAC.
 
 ## 1. Installation
